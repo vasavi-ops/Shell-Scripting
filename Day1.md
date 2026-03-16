@@ -1,30 +1,5 @@
-In DevOps, a shell is a command-line interface (CLI) that allows you to interact with the operating system by typing commands. It acts as a bridge between the user and the operating system kernel. DevOps engineers use the shell to run commands, automate tasks, manage servers, and write scripts.
 
-Key Idea
-
-Kernel → Core part of the OS that manages hardware and system resources
-
-Shell → Interface that lets you send commands to the kernel
-
-So when you type commands in a terminal, the shell interprets them and asks the OS to execute them.
-
-Common Shells Used in DevOps
-
-Bash (Bourne Again Shell) – Most common on Linux systems
-
-Zsh (Z Shell) – Advanced shell with more features
-
-PowerShell – Popular in Windows environments
-
-Sh (Bourne Shell) – Original Unix shell
-
-Example Shell Commands
-pwd        # shows current directory
-ls         # lists files and folders
-cd folder  # change directory
-mkdir test # create a directory
-Why Shell is Important in DevOps
-
+Shell = A program that lets you communicate with the operating system using commands.
 DevOps engineers rely heavily on the shell because it helps to:
 
 Automate tasks using shell scripts
@@ -37,6 +12,68 @@ Control tools like Docker, Kubernetes, and Git
 
 Perform system administration quickly
 
-Simple Definition
+what all the shells configured in linux server>----cat /etc/shells
 
-Shell = A program that lets you communicate with the operating system using commands.
+check which shell we are using --echo $SHELL
+switch to another shell --- /bin/csh
+
+**debug:**
+vi first.sh---shell script file 
+set -x--- startting point 
+anycommand: uptime
+set x ---ending point
+
+
+run all the commands in debug mode ---sh -x first.sh
+
+Varibales:
+ its used to store a value and its  a name of a memory location .
+ rules:
+ letters: a - z and A - Z
+ digits: 0 to 9 
+ underscore :  _
+types:
+system defined variables:
+enc or printenv
+user/programer defind variables
+	age =78
+	name = "sai"
+==Command line arguments:==
+program:1
+reading the values from command line 
+vi commandline.sh 
+
+echo $0
+echo $1
+echo $2
+
+run---sh commandline.sh one java
+result:
+commandline.sh
+one 
+java
+
+program:2
+
+vi commandline.sh 
+
+echo $0
+echo $13---->it will read 1 value from cli first then add 3 value beside to it 
+echo $2
+echo ${11}--->it will display the 11 th value
+echo $#----> total no of arguments passed through script count display 
+echo $@--->all arguments display in the order or in single line 
+echo $@--->all arguments display in the order or in single line as a string
+echo ---->display the process id 
+
+run---sh commandline.sh 1234567891011
+result:
+commandline.sh
+13
+2
+11
+4
+
+$?---previous command status 
+0 is success 
+127--fail
